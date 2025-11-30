@@ -65,22 +65,24 @@ y_pred = mdl_classifier_features(X_train_sel, y_train, X_test_sel)
 
 | Model | Features | Accuracy | Precision | Recall | F1-Score |
 |-------|----------|----------|-----------|--------|----------|
-| MDL | All | 85.3% | 84.7% | 85.3% | 84.9% |
-| MDL | Top 100 | 87.1% | 86.8% | 87.1% | 86.9% |
-| Random Forest | All | 91.2% | 91.0% | 91.2% | 91.1% |
-| Random Forest | Top 100 | 93.4% | 93.2% | 93.4% | 93.3% |
-| SVM | All | 88.9% | 88.5% | 88.9% | 88.7% |
-| SVM | Top 100 | 90.7% | 90.4% | 90.7% | 90.5% |
+| MDL | All | 57.60% | 59.31% | 57.60% | 57.16% |
+| MDL | Top 100 | 65.54% | 67.02% | 65.54% | 65.39% |
+| Logistic Regression | All | 90.58% | 90.94% | 90.58% | 90.52% |
+| Logistic Regression | Top 100 | 89.15% | 89.41% | 89.15% | 89.09% |
+| Random Forest | All | 94.05% | 94.63% | 94.05% | 94.01% |
+| Random Forest | Top 100 | 93.88% | 94.43% | 93.88% | 93.83% |
+| SVM | All | 89.89% | 90.73% | 89.89% | 89.77% |
+| SVM | Top 100 | 96.18% | 96.23% | 96.18% | 96.17% |
 
 ### Key Findings
 
-- Complexity decreases with disease progression
-- Feature selection (top 100 features) improves performance by 2-3%
-- Mean compression ratios:
-  - No Impairment: 0.82 ± 0.03
-  - Very Mild: 0.79 ± 0.04
-  - Mild: 0.76 ± 0.05
-  - Moderate: 0.73 ± 0.06
+- **Best Performance**: SVM with Top 100 features achieves 96.18% accuracy
+- **Classical ML vs AIT**: Traditional ML models (Random Forest, SVM) significantly outperform the MDL approach
+- **Feature Selection Impact**: 
+  - MDL benefits most from feature selection (+7.94% accuracy)
+  - SVM improves significantly with feature selection (+6.29% accuracy)
+  - Random Forest and Logistic Regression remain stable
+- **Interpretability Trade-off**: While MDL provides theoretical interpretability through AIT, classical ML methods achieve superior predictive performance
 
 ## Project Structure
 
