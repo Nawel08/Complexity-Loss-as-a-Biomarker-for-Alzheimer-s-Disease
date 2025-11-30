@@ -17,8 +17,9 @@ Alzheimer's disease accounts for 60–70% of dementia cases worldwide. While AI 
 **Dataset**
 
 - Source: Best Alzheimer's MRI Dataset (Kaggle)
-- Size: 6,400 MRI scans
-- Classes: No Impairment, Very Mild, Mild, Moderate
+- Size: 11,519 MRI scans
+- Classes: No Impairment (27.8%), Very Mild (26.1%), Mild (23.8%), Moderate (22.3%)
+- Binary split: Healthy (53.9%), Impaired (46.1%)
 - Preprocessing: Grayscale conversion, 128×128 resizing
 
 **Features**
@@ -77,11 +78,20 @@ y_pred = mdl_classifier_features(X_train_sel, y_train, X_test_sel)
 ### Key Findings
 
 - **Best Performance**: SVM with Top 100 features achieves 96.18% accuracy
+- **Cross-Validation Results** (5-Fold):
+  - Random Forest: 92.77% ± 0.76%
+  - Logistic Regression: 89.91% ± 0.47%
+  - SVM: 88.74% ± 0.76%
 - **Classical ML vs AIT**: Traditional ML models (Random Forest, SVM) significantly outperform the MDL approach
 - **Feature Selection Impact**: 
   - MDL benefits most from feature selection (+7.94% accuracy)
   - SVM improves significantly with feature selection (+6.29% accuracy)
   - Random Forest and Logistic Regression remain stable
+- **Complexity Analysis**: Hypothesis partially validated
+  - Healthy (No + Very Mild): 0.5783 ± 0.0233
+  - Impaired (Mild + Moderate): 0.5914 ± 0.0200
+  - Note: Higher compression ratio indicates lower complexity (contrary to initial hypothesis)
+  - Complexity progression is non-monotonic across 4-class stages
 - **Interpretability Trade-off**: While MDL provides theoretical interpretability through AIT, classical ML methods achieve superior predictive performance
 
 ## Project Structure
